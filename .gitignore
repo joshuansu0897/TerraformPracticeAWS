@@ -1,0 +1,5 @@
+.terraform*
+terraform.tfstate*
+private
+linux_amd64
+*.zip
