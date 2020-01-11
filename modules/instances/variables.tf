@@ -22,12 +22,12 @@ variable "max_size" {
 
 variable "public_elb_name" {
   #type = "string"
-  description = "Is the name of security groups of public_subnet"
+  description = "Is the name of ELB in public subnets"
 }
 
 variable "private_elb_name" {
   #type = "string"
-  description = "Is the name of security groups of private_subnet"
+  description = "Is the name of ELB in private subnets"
 }
 
 variable "public_sg_name" {
