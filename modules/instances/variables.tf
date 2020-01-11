@@ -72,5 +72,5 @@ variable "public_subnets" {
 
 variable "private_subnets" {
   #type = "list"
-  description = "Region on AWS to Deploy"
+  description = "Is the list of privates subnets"
 }
