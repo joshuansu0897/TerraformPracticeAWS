@@ -39,3 +39,15 @@ module "instances" {
   public_subnets  = module.vps.public_subnets
   private_subnets = module.vps.private_subnets
 }
+
+module "lambda" {
+  source                = "./modules/lambda"
+  region                = var.region
+  function_name_public  = var.function_name_public
+  function_name_private = var.function_name_private
+
+  public_elb_endpoint  = module.instances.elb_dns_name_public
+  private_elb_endpoint = module.instances.elb_dns_name_private
+  private_subnets      = module.vps.private_subnets
+  private_sg_id        = module.instances.private_sg_id
+}

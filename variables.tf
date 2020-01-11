@@ -74,3 +74,13 @@ variable "private_sg_egress" {
   #type = "list"
   description = "Egress Rules to public_subnet"
 }
+
+variable "function_name_public" {
+  #type = "string"
+  description = "Name of public lambda"
+}
+
+variable "function_name_private" {
+  #type = "string"
+  description = "Name of private lambda"
+}

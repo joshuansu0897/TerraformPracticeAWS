@@ -83,3 +83,5 @@ private_sg_egress = [
     cidr_blocks = ["0.0.0.0/0"]
   }
 ]
+function_name_public  = "lambda_public"
+function_name_private = "lambda_private"
