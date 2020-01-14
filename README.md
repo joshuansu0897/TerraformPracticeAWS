@@ -3,7 +3,7 @@
 
 ### Prerequisites
 
-- terraform
+- terraform (version used v0.12.16)
 - aws account
 
 On `~/.aws/credentials`
