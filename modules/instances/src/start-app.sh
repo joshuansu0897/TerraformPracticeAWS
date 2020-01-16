@@ -1,29 +1,22 @@
 #!/bin/bash
 
-sudo apt update
-apt-get --yes install jq
-sudo apt install nginx -y
-sudo ufw allow OpenSSH
-sudo ufw allow 'Nginx HTTP'
-sudo ufw enable
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y npm
+sudo apt-get install -y vim
 
-# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html
-curl -s http://169.254.169.254/latest/dynamic/instance-identity/document
+cd /home
 
-metadata="$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document)"
-instanceId="$(echo "$metadata" | jq .instanceId)"
+sudo npm install connect
 
-cat >/var/www/html/index.nginx-debian.html << EOL
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Metadata from $instanceId</title>
-</head>
-<body>
-    <h1>Metadata from $instanceId</h1>
-    <pre>
-$metadata
-    </pre>
-</body>
-</html>
+cat >/home/app.js << EOL
+ var connect = require('connect');
+    var app = connect()
+    .use(function(req, res){
+        console.log(JSON.stringify(req.headers));
+        res.end(JSON.stringify(req.headers))
+    })
+ .listen(80);
 EOL
+
+sudo node /home/app.js

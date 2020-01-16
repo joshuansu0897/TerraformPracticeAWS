@@ -7,6 +7,5 @@ chmod 400 $PWD/private/ssh/key_access.pem
 
 cp -a $PWD/private $PWD/modules/instances/
 
-cd code
 terraform init
 terraform apply
