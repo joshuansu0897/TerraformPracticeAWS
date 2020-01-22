@@ -20,7 +20,7 @@ aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 
 ### How to SSH into instances
 ```sh
-ssh -i ./private/ssh/key_access.pem ubuntu@x.x.x.x
+ssh -i ./private/ssh/key_access.pem -A ubuntu@x.x.x.x
 ```
 
 ### Destroy
